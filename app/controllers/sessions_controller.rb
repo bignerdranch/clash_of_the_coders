@@ -1,0 +1,15 @@
+class SessionsController < ApplicationController
+  skip_before_filter :authenticate!
+
+  def create
+    user = AuthenticatedUser.find_or_create(auth_credentials)
+    self.current_user = user
+    redirect_to root_path
+  end
+
+  protected
+
+  def auth_credentials
+    AuthenticatedUser::StableAuth.new(request.env['omniauth.auth'])
+  end
+end
