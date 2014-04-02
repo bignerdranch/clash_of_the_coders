@@ -19,4 +19,5 @@ group :development, :test do
   gem 'dotenv-rails' # environment variables
   gem 'pry' # binding and a repl
   gem 'rspec-rails', '~> 3.0.0.beta2' # a proper testing framework
+  gem 'webmock'
 end
