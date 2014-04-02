@@ -13,10 +13,16 @@ module AuthenticatedUser
     def run
       user_factory.where(email: stable_auth.email)
         .first
-        .presence || user_factory.create(stable_auth)
+        .presence || user_factory.create(new_user_attributes)
     end
 
     private
     attr_reader :user_factory
+
+    def new_user_attributes
+      { email: stable_auth.email,
+        name: stable_auth.name,
+        uid: stable_auth.uid }
+    end
   end
 end
