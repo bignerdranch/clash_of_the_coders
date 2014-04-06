@@ -40,7 +40,7 @@ module Users
         hash['full_name']
       end
 
-      def team_id
+      def bnr_team_id
         hash['team_id']
       end
 
