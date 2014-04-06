@@ -17,9 +17,12 @@ ActiveRecord::Schema.define(version: 20140401143805) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "email",      null: false
-    t.string   "name",       null: false
-    t.integer  "uid",        null: false
+    t.boolean  "active",      default: true, null: false
+    t.integer  "bnr_team_id"
+    t.string   "email",                      null: false
+    t.string   "gravatar",                   null: false
+    t.string   "name",                       null: false
+    t.integer  "uid",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
