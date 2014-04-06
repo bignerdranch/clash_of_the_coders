@@ -13,7 +13,7 @@ module AuthenticatedUser
     def run
       user_factory.where(email: stable_auth.email)
         .first
-        .presence || user_factory.create(new_user_attributes)
+        .presence
     end
 
     private
