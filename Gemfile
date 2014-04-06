@@ -17,6 +17,7 @@ group :development, :test do
   gem 'better_errors' # so much better errors
   gem 'binding_of_caller' # better errors helper
   gem 'dotenv-rails' # environment variables
+  gem 'factory_girl_rails' # factories
   gem 'pry' # binding and a repl
   gem 'rspec-rails', '~> 3.0.0.beta2' # a proper testing framework
 end
