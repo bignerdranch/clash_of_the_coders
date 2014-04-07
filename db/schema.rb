@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140401143805) do
     t.string   "email",                      null: false
     t.string   "gravatar",                   null: false
     t.string   "name",                       null: false
-    t.integer  "uid",                        null: false
+    t.integer  "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

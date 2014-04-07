@@ -3,5 +3,4 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :gravatar, presence: true
   validates :name, presence: true
-  validates :uid, presence: true
 end
