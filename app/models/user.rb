@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :gravatar, presence: true
   validates :name, presence: true
+
+  scope :active, -> {
+    where(active:true)
+  }
 end
