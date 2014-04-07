@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||=
-      User.find(session[:user_id]) ||
+      User.find_by_id(session[:user_id]) ||
       NullUser.new
   end
   helper_method :current_user
