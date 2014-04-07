@@ -28,6 +28,10 @@ module Users
         hash['active']
       end
 
+      def bnr_team_id
+        hash['team_id']
+      end
+
       def email
         hash['email']
       end
@@ -38,10 +42,6 @@ module Users
 
       def name
         hash['full_name']
-      end
-
-      def bnr_team_id
-        hash['team_id']
       end
 
       def uid
