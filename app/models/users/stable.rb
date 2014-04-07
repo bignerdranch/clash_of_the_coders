@@ -24,6 +24,14 @@ module Users
     end
 
     Nerd = Struct.new(:hash) do
+      def attributes
+        Hash[active: active,
+          bnr_team_id: bnr_team_id,
+          email: email,
+          gravatar: gravatar,
+          name: name]
+      end
+
       def active
         hash['active']
       end
