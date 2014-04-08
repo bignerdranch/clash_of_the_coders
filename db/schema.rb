@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407194140) do
+ActiveRecord::Schema.define(version: 20140408120800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "lineups", force: true do |t|
+  create_table "competition_years", force: true do |t|
     t.integer "year", null: false
   end
 
   create_table "teams", force: true do |t|
-    t.string  "name",      null: false
-    t.integer "lineup_id", null: false
+    t.string  "name",                null: false
+    t.integer "competition_year_id", null: false
   end
 
-  add_index "teams", ["lineup_id"], name: "index_teams_on_lineup_id", using: :btree
+  add_index "teams", ["competition_year_id"], name: "index_teams_on_competition_year_id", using: :btree
 
   create_table "users", force: true do |t|
     t.boolean  "active",      default: true, null: false

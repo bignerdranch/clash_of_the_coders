@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
-  validates :lineup_id, presence: true
+  validates :competition_year_id, presence: true
   validates :name, presence: true
 
-  belongs_to :lineup, inverse_of: :teams
+  belongs_to :competition_year, inverse_of: :teams
 end
