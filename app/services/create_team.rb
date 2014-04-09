@@ -1,6 +1,6 @@
 class CreateTeam
-  def initialize(params, year: nil)
-    @params = params
+  def initialize(name: nil, year: nil)
+    @name = name
     @year = year || Time.now.year
   end
 
@@ -9,13 +9,13 @@ class CreateTeam
   end
 
   private
-  attr_reader :params, :year
+  attr_reader :name, :year
 
   def competition_year
     @competition_year ||= CompetitionYear.find_or_create_by(year: year)
   end
 
   def team
-    @team ||= Team.new(params.merge(competition_year: competition_year))
+    @team ||= Team.new(Hash[name: name].merge(competition_year: competition_year))
   end
 end
