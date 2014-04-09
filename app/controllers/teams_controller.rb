@@ -1,8 +1,4 @@
 class TeamsController < ApplicationController
-  def new
-    @team = Team.new
-  end
-
   def create
     team = CreateTeam.run(create_params)
     if team.save
@@ -10,6 +6,14 @@ class TeamsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @teams = Team.for_current_year
+  end
+
+  def new
+    @team = Team.new
   end
 
   private
