@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates :gravatar, presence: true
   validates :name, presence: true
 
+  has_many :teams, through: :team_members
+  has_many :team_members, inverse_of: :user
+
   scope :active, -> {
     where(active:true)
   }
