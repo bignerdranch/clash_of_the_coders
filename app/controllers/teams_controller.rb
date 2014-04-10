@@ -8,6 +8,10 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @team = find_team(show_params)
+  end
+
   def index
     @teams = Team.for_current_year
   end
@@ -18,6 +22,15 @@ class TeamsController < ApplicationController
 
   def show
     @team = find_team(show_params)
+  end
+
+  def update
+    @team = find_team(show_params)
+    if @team.update(update_params)
+      redirect_to team_path(@team)
+    else
+      render :edit
+    end
   end
 
   private
@@ -32,5 +45,9 @@ class TeamsController < ApplicationController
 
   def show_params
     params.require(:id)
+  end
+
+  def update_params
+    params.require(:team).permit(:name)
   end
 end
