@@ -2,5 +2,7 @@
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
 
+  <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {:multiple => true}) %>
+
   <%= f.submit %>
 <% end %>

@@ -35,6 +35,11 @@ class TeamsController < ApplicationController
 
   private
 
+  def available_users
+    User.available
+  end
+  helper_method :available_users
+
   def create_params
     params.require(:team).permit(:name)
   end
