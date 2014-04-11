@@ -1,5 +1,9 @@
 // import the CSS framework
+@import "variables";
+@import "variable-overrides";
 @import "foundation";
+@import "typography";
+@import "splash";
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -7,7 +11,7 @@
   line-height: 45px; }
 .top-bar .name a {
   font-weight: normal;
-  color: white;
+  color: $nav-bar-link-color;
   padding: 0 15px; }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -38,9 +42,11 @@
   }
 // apply styles to HTML elements
 // to make views framework-neutral
+body {
+  background-color: $background-color;
+}
 main {
   @include twelve-columns;
-  background-color: #eee;
   }
 section {
   @extend .row;
