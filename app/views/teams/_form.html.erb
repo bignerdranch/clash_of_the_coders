@@ -8,7 +8,7 @@
   <%= f.label :homepage %>:
   <%= f.text_field :homepage %><br />
 
-  <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {:multiple => true}) %>
+  <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {:multiple => true, class: 'chosen-select'}) %>
 
   <%= f.submit %>
 <% end %>
