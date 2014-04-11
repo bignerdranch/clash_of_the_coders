@@ -1,5 +1,10 @@
-<ul>
-  <%- members.each do |member| %>
-    <li><%= member.name %> <%= image_tag member.gravatar %></li>
-  <% end %>
-</ul>
+<h3>Members</h3>
+
+<ul class="large-block-grid-2">
+<%- members.each do |member| %>
+    <li>
+      <%= image_tag member.gravatar + '&s=400', class: "member-gravatar" %>
+      <p class="centered member-name"><%= member.name %></p>
+    </li>
+<% end %>
+  </ul>

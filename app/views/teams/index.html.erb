@@ -1,6 +1,13 @@
-<h1>This year's teams</h1>
-<ul>
-  <%- @teams.each do |team| %>
-    <li><%= link_to team.name, team_path(team) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="columns large-10 large-centered">
+    <h1 class="centered">This year's teams</h1>
+
+    <%= render 'teams/navigation' %>
+
+    <ul class="no-bullet">
+      <%- @teams.each do |team| %>
+        <li><%= link_to team.name, team_path(team) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

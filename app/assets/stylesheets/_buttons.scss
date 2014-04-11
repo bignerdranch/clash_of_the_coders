@@ -1,0 +1,8 @@
+@import "variables";
+
+.btn-green {
+  background: $green;
+  &:hover {
+    background: darken($green, 10%);
+  }
+}
