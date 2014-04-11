@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   scope :active, -> {
     where(active:true)
   }
+
+  scope :available, -> {
+    active
+  }
 end
