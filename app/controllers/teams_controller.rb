@@ -41,7 +41,10 @@ class TeamsController < ApplicationController
   helper_method :available_users
 
   def create_params
-    params.require(:team).permit(:name, member_ids: [])
+    params.require(:team).permit(:description,
+      :homepage,
+      :name,
+      member_ids: [])
   end
 
   def find_team(id)
