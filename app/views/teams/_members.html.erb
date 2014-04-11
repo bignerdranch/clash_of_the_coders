@@ -1,0 +1,5 @@
+<ul>
+  <%- members.each do |member| %>
+    <li><%= member.name %> <%= image_tag member.gravatar %></li>
+  <% end %>
+</ul>
