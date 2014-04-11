@@ -1,0 +1,14 @@
+<%= form_for @team do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_area :description %><br />
+
+  <%= f.label :homepage %>:
+  <%= f.text_field :homepage %><br />
+
+  <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {:multiple => true}) %>
+
+  <%= f.submit %>
+<% end %>
