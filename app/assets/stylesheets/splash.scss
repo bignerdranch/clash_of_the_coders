@@ -1,0 +1,23 @@
+@import "variables";
+
+.splash {
+  padding-top: 1em;
+  font-size: 5em;
+  text-align: center;
+}
+
+.splash-keyword {
+  font-weight: 900;
+  line-height: 0.7em;
+  font-size: 2em;
+}
+
+.splash-joining-words {
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 0.8em;
+}
+
+.splash-year {
+  color: $year;
+}

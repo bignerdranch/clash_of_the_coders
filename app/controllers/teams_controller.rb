@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
     if team.save
       redirect_to root_path
     else
+      add_errors
       render :new
     end
   end
@@ -29,11 +30,18 @@ class TeamsController < ApplicationController
     if @team.update(update_params)
       redirect_to team_path(@team)
     else
+      add_errors
       render :edit
     end
   end
 
   private
+
+  def add_errors
+    @team.errors.messages.each do |error|
+      flash.now[error[0]] = error[1][0]
+    end
+  end
 
   def available_users
     User.available

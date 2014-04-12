@@ -1,0 +1,19 @@
+.member-gravatar {
+  max-width: 100%;
+}
+
+.member-name {
+  font-size: 1.3em;
+}
+
+.chosen-container {
+  width: 100% !important;
+  input {
+    padding: 1em !important;
+  }
+  .search-field {
+    input {
+      width: 200px !important;
+    }
+  }
+}

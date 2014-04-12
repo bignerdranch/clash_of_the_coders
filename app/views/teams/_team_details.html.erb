@@ -1,6 +1,11 @@
-<dl>
-  <dd>description</dd>
-  <dt><%= team.description %></dt>
-  <dd>url</dd>
-  <dt><%= link_to team.homepage, team.homepage %></dt>
-</dl>
+<div class="row">
+  <div class="large-6 medium-6 columns">
+    <h3>description</h3>
+    <p><%= team.description %></p>
+  </div>
+
+  <div class="large-6 medium-6 columns">
+    <h3>url</h3>
+    <p><%= link_to team.homepage, team.homepage %></p>
+  </div>
+</div>

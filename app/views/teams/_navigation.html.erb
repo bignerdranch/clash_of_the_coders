@@ -1,0 +1,7 @@
+<nav class="sub-navigation">
+  <%= link_to 'New Team', new_team_path %>
+  <%- if defined? team %>
+    |
+    <%= link_to 'Edit Team', edit_team_path(team) %>
+  <% end %>
+</nav>

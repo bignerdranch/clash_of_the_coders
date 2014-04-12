@@ -1,14 +1,35 @@
-<%= form_for @team do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
+<%= form_for @team, data: {abide: true} do |f| %>
+  <div class="large-3 columns">
+    <%= f.label :name, class: "right" %>
+  </div>
+  <div class="large-9 columns">
+    <%= f.text_field :name, placeholder: 'Crash of the Coders', required: true, autofocus: true %>
+    <small class="error">Your team must have a name.</small>
+  </div>
 
-  <%= f.label :description %>:
-  <%= f.text_area :description %><br />
+  <div class="large-3 columns">
+    <%= f.label :homepage, class: "right" %>
+  </div>
+  <div class="large-9 columns">
+    <%= f.text_field :homepage, pattern: 'url', placeholder: 'http://stable.bignerdranch.com' %>
+    <small class="error">Must be a url.</small>
+  </div>
 
-  <%= f.label :homepage %>:
-  <%= f.text_field :homepage %><br />
+  <div class="large-3 columns">
+    <%= f.label :description, class: "right" %>
+  </div>
+  <div class="large-9 columns">
+    <%= f.text_area :description, rows: 10, placeholder: 'Disrupting all the things.' %>
+  </div>
 
-  <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {:multiple => true}) %>
+  <div class="large-3 columns">
+    <label class="right">Select a Team</label>
+  </div>
+  <div class="large-9 columns">
+    <%= f.collection_select(:member_ids, available_users, :id, :name, {prompt: 'Select team members' }, {multiple: true, class: 'chosen-select big'}) %>
+  </div>
 
-  <%= f.submit %>
+  <div class="large-9 columns buffered-top">
+    <%= f.submit 'Submit', class: "button expand" %>
+  </div>
 <% end %>

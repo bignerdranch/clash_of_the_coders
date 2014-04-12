@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'chosen-rails' # multi-selects made pretty
 gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and views
+gem 'foundation-rails' # style help
 gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'omniauth' # authentication
@@ -9,9 +11,12 @@ gem 'omniauth-stable', github: 'bignerdranch/omniauth-stable' # hook into stable
 gem 'pg' # postgresql
 gem 'rails', '4.0.4'
 gem 'sass-rails', '~> 4.0.2' # Use SCSS for stylesheets
-gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'unicorn' # Use unicorn as the app server
+
+group :development do
+  gem 'rails_layout' # we'll use this for foundation (http://railsapps.github.io/rails-foundation.html)
+end
 
 group :development, :test do
   gem 'better_errors' # so much better errors

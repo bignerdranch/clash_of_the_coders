@@ -1,0 +1,9 @@
+@import "variables";
+
+body {
+  font-family: $font-stack;
+}
+
+.centered {
+  @extend .text-center;
+}
