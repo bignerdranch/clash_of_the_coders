@@ -5,5 +5,5 @@ body {
 }
 
 .centered {
-  text-align: center;
+  @extend .text-center;
 }
