@@ -1,23 +1,25 @@
-<%= form_for @team do |f| %>
+<%= form_for @team, data: {abide: true} do |f| %>
   <div class="large-3 columns">
     <%= f.label :name, class: "right" %>
   </div>
   <div class="large-9 columns">
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Crash of the Coders', required: true, autofocus: true %>
+    <small class="error">Your team must have a name.</small>
   </div>
 
   <div class="large-3 columns">
     <%= f.label :homepage, class: "right" %>
   </div>
   <div class="large-9 columns">
-    <%= f.text_field :homepage %>
+    <%= f.text_field :homepage, pattern: 'url', placeholder: 'http://stable.bignerdranch.com' %>
+    <small class="error">Must be a url.</small>
   </div>
 
   <div class="large-3 columns">
     <%= f.label :description, class: "right" %>
   </div>
   <div class="large-9 columns">
-    <%= f.text_area :description, rows: 10 %>
+    <%= f.text_area :description, rows: 10, placeholder: 'Disrupting all the things.' %>
   </div>
 
   <div class="large-3 columns">
