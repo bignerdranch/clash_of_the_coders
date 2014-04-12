@@ -1,0 +1,9 @@
+#!/bin/sh
+
+app_name='clash-of-the-coders'
+
+git push heroku master
+heroku pgbackups:capture --expire --app $app_name
+heroku run rake db:migrate --app $app_name
+heroku restart --app $app_name
+curl -o /dev/null http://$app_name.herokuapp.com
