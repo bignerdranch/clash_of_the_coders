@@ -27,6 +27,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2' # a proper testing framework
 end
 
+gem 'rails_12factor', group: :production
+
 group :test do
   gem 'webmock'
 end
