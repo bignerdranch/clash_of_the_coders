@@ -1,8 +1,8 @@
 class TeamsController < ApplicationController
   def create
-    team = CreateTeam.run(create_params)
-    if team.save
-      redirect_to root_path
+    @team = Team.new(create_params.merge(competition_year: CompetitionYear.current))
+    if @team.save
+      redirect_to team_path(@team)
     else
       add_errors
       render :new
