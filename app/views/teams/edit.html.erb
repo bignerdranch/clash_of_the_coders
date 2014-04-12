@@ -1,3 +1,6 @@
-<h1><%= @team.name %></h1>
-
-<%= render 'teams/form', team: @team %>
+<div class="row">
+  <div class="columns large-10 large-centered">
+    <h1 class="centered"><%= @team.name %></h1>
+    <%= render 'teams/form', team: @team %>
+  </div>
+</div>
