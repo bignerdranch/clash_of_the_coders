@@ -1,4 +1,11 @@
 @import "variables";
+$primary-color: $blue-light !default;
+$secondary-color: $gray !default;
+$alert-color: $red !default;
+$success-color: $green !default;
+$warning-color: $orange !default;
+$info-color: $blue-light !default;
+
 $topbar-bg: $background-color;
 $topbar-link-bg-hover: $active;
 $topbar-link-color: $dark;
@@ -7,3 +14,4 @@ $topbar-link-color-active: $dark;
 $topbar-link-color-active-hover: $dark;
 
 $header-font-family: $font-stack;
+$header-font-color: $dark;
