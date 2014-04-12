@@ -11,7 +11,6 @@ gem 'omniauth-stable', github: 'bignerdranch/omniauth-stable' # hook into stable
 gem 'pg' # postgresql
 gem 'rails', '4.0.4'
 gem 'sass-rails', '~> 4.0.2' # Use SCSS for stylesheets
-gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'unicorn' # Use unicorn as the app server
 
