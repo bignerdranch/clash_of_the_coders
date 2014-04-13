@@ -30,5 +30,9 @@ end
 gem 'rails_12factor', group: :production
 
 group :test do
+  gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
+  gem 'database_cleaner'
+  gem 'launchy' # Save and open page!!!
+  gem 'poltergeist'
   gem 'webmock'
 end
