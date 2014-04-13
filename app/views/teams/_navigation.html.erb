@@ -1,5 +1,5 @@
 <nav class="sub-navigation">
-  <%= link_to 'New Team', new_team_path %>
+  <%= link_to 'New Team', new_team_path, rel: I18n.t('rel.new_team') %>
   <%- if defined? team %>
     |
     <%= link_to 'Edit Team', edit_team_path(team) %>
