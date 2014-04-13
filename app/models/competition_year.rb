@@ -4,6 +4,7 @@ class CompetitionYear < ActiveRecord::Base
   has_many :teams, inverse_of: :competition_year
 
   def self.current
-    where(year: Date.current.year).first
+    year = Date.current.year
+    where(year: year).first || create(year: year)
   end
 end
