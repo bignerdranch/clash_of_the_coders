@@ -1,6 +1,6 @@
  <ul class="right">
    <li>
-     <%= link_to 'Teams', teams_path %>
+     <%= link_to 'Teams', teams_path, rel: I18n.t('rel.all_teams') %>
    </li>
    <li>
      <%= link_to 'Log out', session_path, method: :delete %>
