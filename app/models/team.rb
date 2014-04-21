@@ -20,7 +20,7 @@ class Team < ActiveRecord::Base
     end
   end
 
-  def score
+  def raw_score
     scores.average(:value)
   end
 end
