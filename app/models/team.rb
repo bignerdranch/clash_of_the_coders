@@ -10,8 +10,12 @@ class Team < ActiveRecord::Base
   has_many :scores, inverse_of: :team
 
   scope :for_current_year, -> {
+    for_year(Date.current.year)
+  }
+
+  scope :for_year, -> (year) {
     includes(:competition_year)
-      .where(competition_years: { year: Date.current.year })
+      .where(competition_years: { year: year })
   }
 
   def member_limit
