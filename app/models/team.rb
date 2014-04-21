@@ -19,4 +19,8 @@ class Team < ActiveRecord::Base
       errors.add(:members, "Teams can have no more than #{MEMBER_LIMIT} members.")
     end
   end
+
+  def score
+    scores.average(:value)
+  end
 end
