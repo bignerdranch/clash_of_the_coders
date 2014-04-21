@@ -1,1 +1,20 @@
-<h1>Scoreboard</h1>
+<h1><%= @scoreboard.year %> Scoreboard</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Team name</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @scoreboard.teams.each do |team| %>
+      <tr id='<%= dom_id(team) %>'>
+        <td><%= team.position %></td>
+        <td><%= team.name %></td>
+        <td><%= team.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
