@@ -1,6 +1,8 @@
 #!/bin/sh
+set -o nounset
+set -o errexit
 
-bin/rake db:create && \
-bin/rake db:migrate && \
-bin/rake db:import_nerds && \
-RAILS_ENV=test bin/rake db:migrate
+bin/rake db:setup
+echo "Importing current nerds"
+bin/rake db:import_nerds
+RAILS_ENV=test bin/rake db:setup
