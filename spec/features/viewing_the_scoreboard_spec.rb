@@ -12,6 +12,8 @@ describe 'Scoreboard' do
 
   describe 'viewing the scoreboard' do
     before do
+      allow_any_instance_of(Team).to receive(:bonus?)
+        .and_return(false)
       Scorecard.create(scores: [
           { id: team_1.id, score: 90 },
           { id: team_2.id, score: 95 }],
