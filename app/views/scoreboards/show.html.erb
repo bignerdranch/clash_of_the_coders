@@ -1,3 +1,7 @@
-<h1><%= @scoreboard.year %> Scoreboard</h1>
+<div class="row">
+  <div class="columns large-10 large-centered">
+    <h1 class="centered"><%= @scoreboard.year %> Scoreboard</h1>
 
     <%= render 'scoreboards/board', teams: @scoreboard.teams %>
+  </div>
+</div>
