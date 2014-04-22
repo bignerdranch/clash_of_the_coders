@@ -23,4 +23,5 @@ en:
   rel:
     all_teams: 'all-teams'
     new_team: 'new-team'
+    scoreboard: 'scoreboard'
     submit_team: 'submit-team'

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :teams, through: :team_members
   has_many :team_members, inverse_of: :user
+  has_many :scores, inverse_of: :user
 
   scope :active, -> {
     where(active:true)

@@ -14,12 +14,6 @@ describe 'Teams' do
     expect_new_team_to_exist
   end
 
-  def visit_new_team_path
-    visit root_path
-    click_teams_link
-    click_new_team_link
-  end
-
   def fill_in_new_team_information
     fill_in 'team_name', with: team_name
     select current_user.name, from: 'team_member_ids'
@@ -28,17 +22,5 @@ describe 'Teams' do
 
   def expect_new_team_to_exist
     expect(page).to have_content(team_name)
-  end
-
-  def click_teams_link
-    find_rel(I18n.t('rel.all_teams')).click
-  end
-
-  def click_new_team_link
-    find_rel(I18n.t('rel.new_team')).click
-  end
-
-  def find_rel(rel)
-    find("[rel~='#{rel}']")
   end
 end

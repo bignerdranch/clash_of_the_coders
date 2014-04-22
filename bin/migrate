@@ -1,0 +1,6 @@
+#!/bin/sh
+
+bin/rake db:migrate && \
+bin/rake db:rollback && \
+bin/rake db:migrate && \
+RAILS_ENV=test bin/rake db:migrate

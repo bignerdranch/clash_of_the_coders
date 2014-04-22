@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'capybara/poltergeist'
 require 'capybara/rails'
 require 'database_cleaner'
+require 'spec_helper'
 Capybara.javascript_driver = :poltergeist
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -12,6 +13,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  include ClashOfTheCoders::CapybaraHelpers
+  include ClashOfTheCoders::NavigationHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
