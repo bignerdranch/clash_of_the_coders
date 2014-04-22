@@ -18,6 +18,11 @@ class Team < ActiveRecord::Base
       .where(competition_years: { year: year })
   }
 
+  def bonus?
+    team_ids = members.pluck(:bnr_team_id).uniq
+    team_ids.count == members.length
+  end
+
   def member_limit
     if members.count > MEMBER_LIMIT
       errors.add(:members, "Teams can have no more than #{MEMBER_LIMIT} members.")
