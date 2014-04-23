@@ -23,28 +23,18 @@ describe 'Scoreboard' do
     end
 
     it 'shows the score for each team' do
-      within(dom_id(team_1)) do
-        expect(page).to have_content(90)
-      end
-      within(dom_id(team_2)) do
-        expect(page).to have_content(95)
-      end
+      expect_team_to_have(team: team_1, content: 90)
+      expect_team_to_have(team: team_2, content: 95)
     end
 
     it 'shows the position for each team' do
-      within(dom_id(team_1)) do
-        expect(page).to have_content('2nd')
-      end
-      within(dom_id(team_2)) do
-        expect(page).to have_content('1st')
-      end
+      expect_team_to_have(team: team_1, content: '2nd')
+      expect_team_to_have(team: team_2, content: '1st')
     end
 
     it 'shows a 0 score and no rank for teams with no score' do
-      within(dom_id(team_3)) do
-        expect(page).to have_content(0)
-        expect(page).to_not have_content('3rd')
-      end
+      expect_team_to_have(team: team_3, content: 0)
+      expect_team_to_not_have(team: team_3, content: '3rd')
     end
   end
 end
