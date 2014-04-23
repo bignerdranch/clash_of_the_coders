@@ -16,11 +16,11 @@ module Scoring
     attr_reader :score_factory, :team_factory
 
     def scores_by_user
-      score_factory.by_user(user)
+      @scores_by_user ||= score_factory.by_user(user)
     end
 
     def teams_to_be_scored
-      team_factory.in_same_year(scores.first.id)
+      @teams_to_be_scored ||= team_factory.in_same_year(scores.first.id)
     end
   end
 end
