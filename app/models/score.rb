@@ -1,6 +1,8 @@
 class Score < ActiveRecord::Base
-  validates :team_id, presence: true
-  validates :user_id, presence: true
+  validates :team_id, presence: true, uniqueness: { scope: :user,
+    message: "You can only vote for a team once." }
+  validates :user_id, presence: true, uniqueness: { scope: :team,
+    message: "You can only vote for a team once." }
   validates :value, presence: true
 
   belongs_to :team, inverse_of: :scores
