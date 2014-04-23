@@ -9,7 +9,7 @@ describe 'Teams' do
   let(:team_name) { 'The best team' }
 
   it 'a user can create a new team and add members to that team' do
-    visit_new_team_path
+    visit_new_team_page
     fill_in_new_team_information
     expect_new_team_to_exist
   end

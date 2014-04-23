@@ -19,7 +19,7 @@ describe 'Scoreboard' do
           { id: team_2.id, score: 95 }],
         user: current_user)
 
-      visit_scoreboard_path
+      visit_scoreboard_page
     end
 
     it 'shows the score for each team' do

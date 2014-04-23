@@ -1,11 +1,11 @@
 module ClashOfTheCoders::NavigationHelpers
-  def visit_new_team_path
+  def visit_new_team_page
     visit root_path
     click_teams_link
     click_new_team_link
   end
 
-  def visit_scoreboard_path
+  def visit_scoreboard_page
     visit root_path
     click_scoreboard_link
   end
