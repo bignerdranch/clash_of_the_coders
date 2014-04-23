@@ -8,8 +8,8 @@ module Scoring
       ActiveModel::Name.new(self, nil, 'Scorecard')
     end
 
-    attr_reader :scores, :score_processor, :teams, :user, :validator
-    def initialize(scores: nil, teams: nil, user: nil, validator: Scoring::Validator, score_processor: Scoring::Processor)
+    attr_reader :scores, :score_processor, :teams, :user
+    def initialize(scores: nil, teams: nil, user: nil, validator: nil, score_processor: Scoring::Processor)
       @scores = scores
       @score_processor = score_processor
       @teams = teams
@@ -33,6 +33,12 @@ module Scoring
       else
         false
       end
+    end
+
+    private
+
+    def validator
+      @validator ||= Scoring::Validator.new(scores: scores, user: user)
     end
   end
 end
