@@ -9,6 +9,12 @@ class Team < ActiveRecord::Base
   has_many :team_members, inverse_of: :team
   has_many :scores, inverse_of: :team
 
+  scope :in_same_year, ->(id) {
+    find(id)
+      .competition_year
+      .teams
+  }
+
   scope :for_current_year, -> {
     for_year(Date.current.year)
   }

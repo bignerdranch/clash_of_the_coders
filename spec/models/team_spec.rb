@@ -19,4 +19,15 @@ describe Team do
       expect(team.bonus?).to be_falsy
     end
   end
+
+  describe '.in_same_year' do
+    let!(:year) { FactoryGirl.create(:competition_year) }
+    let!(:team_same_1) { FactoryGirl.create(:team, competition_year: year) }
+    let!(:team_same_2) { FactoryGirl.create(:team, competition_year: year) }
+    let!(:team_different_1) { FactoryGirl.create(:team) }
+
+    it 'finds all the teams in the same year as the one passed in' do
+      expect(Team.in_same_year(team_same_1.id)).to match_array([team_same_1, team_same_2])
+    end
+  end
 end
