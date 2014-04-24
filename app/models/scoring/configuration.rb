@@ -4,6 +4,10 @@ module Scoring
       super(args)
     end
 
+    def scores
+      @scores ||= Scoring::Scores.build(@table[:scores])
+    end
+
     def score_factory
       @table[:score_factory] || Score
     end

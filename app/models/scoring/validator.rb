@@ -31,7 +31,7 @@ module Scoring
     end
 
     def teams_to_be_scored
-      @teams_to_be_scored ||= team_factory.in_same_year(scores.first.id)
+      @teams_to_be_scored ||= team_factory.in_same_year(scores.first.team_id)
     end
 
     def user
