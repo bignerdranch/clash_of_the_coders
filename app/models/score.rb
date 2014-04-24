@@ -15,4 +15,10 @@ class Score < ActiveRecord::Base
   scope :score_for, ->(user_id, team_id) {
     where(team_id: team_id, user_id: user_id).first
   }
+
+  scope :for_current_year_by, ->(id) {
+    where(user_id: id)
+      .includes(team: :competition_year)
+      .where(competition_years: { year: Date.current.year })
+  }
 end

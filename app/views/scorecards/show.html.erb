@@ -3,5 +3,7 @@
     <h1 class="centered">Your Votes for <%= @scorecard_report.year %></h1>
 
     <%= render 'scorecards/report', scorecard_report: @scorecard_report %>
+
+    <%= link_to 'Delete my votes', scorecard_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert' %>
   </div>
 </div>

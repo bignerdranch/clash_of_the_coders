@@ -13,6 +13,11 @@ class ScorecardsController < ApplicationController
     end
   end
 
+  def destroy
+    Score.for_current_year_by(current_user.id).destroy_all
+    redirect_to new_scorecard_path
+  end
+
   def new
     @scorecard = Scoring::Form.new(teams: teams)
   end
