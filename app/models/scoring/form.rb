@@ -1,4 +1,5 @@
 require 'active_model'
+require 'scoring/configuration'
 
 module Scoring
   class Form
@@ -8,13 +9,9 @@ module Scoring
       ActiveModel::Name.new(self, nil, 'Scorecard')
     end
 
-    attr_reader :scores, :score_processor, :teams, :user
-    def initialize(scores: nil, teams: nil, user: nil, validator: nil, score_processor: Scoring::Processor)
-      @scores = scores
-      @score_processor = score_processor
-      @teams = teams
-      @user = user
-      @validator = validator
+    attr_reader :configuration
+    def initialize(configuration_hash)
+      @configuration = Scoring::Configuration.new(configuration_hash)
     end
 
     def persisted?
@@ -35,10 +32,26 @@ module Scoring
       end
     end
 
+    def teams
+      configuration.teams
+    end
+
     private
 
+    def scores
+      configuration.scores
+    end
+
+    def score_processor
+      configuration.score_processor
+    end
+
+    def user
+      configuration.user
+    end
+
     def validator
-      @validator ||= Scoring::Validator.new(scores: scores, user: user)
+      configuration.validator
     end
   end
 end
