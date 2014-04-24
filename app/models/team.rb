@@ -24,6 +24,10 @@ class Team < ActiveRecord::Base
       .where(competition_years: { year: year })
   }
 
+  scope :scored_by_user, ->(user) {
+    joins(:scores).where(scores: {user_id: user.id})
+  }
+
   def bonus?
     team_ids = members.pluck(:bnr_team_id).uniq
     team_ids.count == members.length

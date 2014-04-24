@@ -24,6 +24,28 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
+  def scorecard_link
+    if scorecard_complete?
+      scorecard_path
+    else
+      new_scorecard_path
+    end
+  end
+  helper_method :scorecard_link
+
+  def scorecard_link_text
+    if scorecard_complete?
+      'Your Votes'
+    else
+      'Vote'
+    end
+  end
+  helper_method :scorecard_link_text
+
+  def scorecard_complete?
+    Scoring::Complete.check?(year: Date.current.year, user: current_user)
+  end
+
   class NullUser
     def persisted?
       false
