@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate!
+    dynamically_set_current_user and return if dynamic_users?
     redirect_to '/auth/stable' unless current_user.persisted?
   end
 
@@ -22,6 +23,13 @@ class ApplicationController < ActionController::Base
 
   def current_user=(user)
     session[:user_id] = user.id
+  end
+
+  def dynamically_set_current_user
+    if user_params.present?
+      session[:user_id] = user_params[:user_id]
+      current_user
+    end
   end
 
   def scorecard_link
@@ -44,6 +52,15 @@ class ApplicationController < ActionController::Base
 
   def scorecard_complete?
     Scoring::Complete.check?(year: Date.current.year, user: current_user)
+  end
+
+  def dynamic_users?
+    ENV['DYNAMIC_USERS'].present?
+  end
+  helper_method :dynamic_users?
+
+  def user_params
+    params.permit(:user_id)
   end
 
   class NullUser

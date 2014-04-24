@@ -13,7 +13,7 @@ class Score < ActiveRecord::Base
   }
 
   scope :score_for, ->(user_id, team_id) {
-    where(team_id: team_id, user_id: user_id).first
+    where(team_id: team_id, user_id: user_id)
   }
 
   scope :for_current_year_by, ->(id) {

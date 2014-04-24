@@ -1,6 +1,10 @@
 <div class="row">
   <div class="columns large-10 large-centered">
     <h1 class="centered">Vote</h1>
+    <%- if dynamic_users? %>
+      <p>Hi, <%= current_user.name %></p>
+    <% end %>
+
     <p>Vote for all the teams below.</p>
     <p>Voting rules:</p>
     <ol>
