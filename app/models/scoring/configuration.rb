@@ -17,11 +17,11 @@ module Scoring
     end
 
     def validator
-      @table[:validator] || Scoring::Validator.new(scores: scores, user: user)
+      @table[:validator] || Scoring::Validator.new(self)
     end
 
     def score_processor
-      @table[:score_processor] || Scoring::Processor
+      @table[:score_processor] || Scoring::Processor.new(self)
     end
   end
 end
