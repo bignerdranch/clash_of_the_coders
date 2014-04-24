@@ -6,5 +6,8 @@
 
     <%= render 'teams/team_details', team: @team %>
     <%= render 'teams/members', members: @team.members %>
+    <%- if @team.bonus? %>
+      <p>This team qualifies for bonus points because all members have from different managers.</p>
+    <% end %>
   </div>
 </div>

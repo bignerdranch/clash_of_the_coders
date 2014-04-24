@@ -11,8 +11,9 @@
       <tr id='<%= dom_id(team) %>'>
         <td><%= team.position %></td>
         <td><%= team.name %></td>
-        <td><%= team.score %></td>
+        <td><%= team.score %><%= '*' if team.bonus? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<p>* denotes that team earns the bonus 8 points.</p>
