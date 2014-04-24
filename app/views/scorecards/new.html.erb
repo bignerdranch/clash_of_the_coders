@@ -1,6 +1,15 @@
 <div class="row">
   <div class="columns large-10 large-centered">
     <h1 class="centered">Vote</h1>
+    <p>Vote for all the teams below.</p>
+    <p>Voting rules:</p>
+    <ol>
+      <li>You must vote for every team.</li>
+      <li>You can award each team <b>up to 75</b> points.</li>
+     <li>A team's final score is the average of all their votes plus
+       the bonus 8 points if earned.</li>
+    </ol>
+
     <%= render 'scorecards/form', scorecard: @scorecard %>
   </div>
 </div>
