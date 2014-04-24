@@ -24,4 +24,6 @@ en:
     all_teams: 'all-teams'
     new_team: 'new-team'
     scoreboard: 'scoreboard'
+    scorecard: 'scorecard'
+    submit_scorecard: 'submit-scorecard'
     submit_team: 'submit-team'

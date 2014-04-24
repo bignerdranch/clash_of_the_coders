@@ -1,0 +1,16 @@
+<%= form_for scorecard, url: scorecard_path, method: :post, data: {abide: true} do |f| %>
+  <%- scorecard.teams.each do |team| %>
+    <div class="large-11 columns">
+      <b><%= team.name %></b> (<%= team.members.pluck(:name).join(', ') %>)
+    </div>
+
+    <div class="large-1 columns">
+      <%= text_field_tag "scores[][#{team.id}]", nil, placeholder: '75', required: true, pattern: 'integer' %>
+      <small class="error">VOTE</small>
+    </div>
+  <% end %>
+
+  <div class="large-12 columns buffered-top">
+    <%= f.submit 'Submit', class: "button expand", rel: I18n.t('rel.submit_scorecard') %>
+  </div>
+<% end %>
