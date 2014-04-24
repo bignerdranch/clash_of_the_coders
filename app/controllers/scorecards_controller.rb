@@ -17,6 +17,11 @@ class ScorecardsController < ApplicationController
     @scorecard = Scoring::Form.new(teams: teams)
   end
 
+  def show
+    @scorecard_report = Scoring::Report.new(teams: teams,
+      user: current_user)
+  end
+
   private
 
   def create_params
