@@ -6,7 +6,7 @@ class ScorecardsController < ApplicationController
 
     if @scorecard.persist
       flash.now[:notice] = 'Your scores have been recorded.'
-      redirect_to scoreboards_path
+      redirect_to scoreboard_path
     else
       flash.now[:alert] = 'Something went wrong.'
       render :new
