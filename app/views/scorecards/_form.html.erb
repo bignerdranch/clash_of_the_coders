@@ -1,7 +1,7 @@
 <%= form_for scorecard, url: scorecard_path, method: :post, data: {abide: true} do |f| %>
   <%- scorecard.teams.each do |team| %>
     <div class="large-11 columns">
-      <%= team.name %>
+      <b><%= team.name %></b> (<%= team.members.pluck(:name).join(', ') %>)
     </div>
 
     <div class="large-1 columns">
