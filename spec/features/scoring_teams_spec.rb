@@ -7,9 +7,10 @@ describe 'Scoring teams' do
     allow_any_instance_of(Team).to receive(:bonus?)
       .and_return(false)
   end
+  let(:year) { FactoryGirl.create(:competition_year) }
   let(:current_user) { FactoryGirl.create(:user) }
-  let!(:team_1) { FactoryGirl.create(:team) }
-  let!(:team_2) { FactoryGirl.create(:team) }
+  let!(:team_1) { FactoryGirl.create(:team, competition_year: year) }
+  let!(:team_2) { FactoryGirl.create(:team, competition_year: year) }
   let(:team_1_vote) { [{ team: team_1, score: 10 }] }
   let(:team_2_vote) { [{ team: team_2, score: 20 }] }
 
