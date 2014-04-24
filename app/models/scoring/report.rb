@@ -40,8 +40,8 @@ module Scoring
       end
 
       def score
-        score_factory.score_for(user.id, id)
-          .value
+        score_obj = score_factory.score_for(user.id, id).first || OpenStruct.new(value: 'No score')
+        score_obj.value
       end
     end
   end
