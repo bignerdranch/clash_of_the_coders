@@ -10,7 +10,16 @@ module ClashOfTheCoders::NavigationHelpers
     click_scoreboard_link
   end
 
+  def visit_scorecard_page
+    visit root_path
+    click_scorecard_link
+  end
+
   private
+
+  def click_scorecard_link
+    find_rel(I18n.t('rel.scorecard')).click
+  end
 
   def click_teams_link
     find_rel(I18n.t('rel.all_teams')).click
