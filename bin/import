@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+# Create the backup on heroku
+heroku pgbackups:capture --expire -a clash-of-the-coders
+
+# Download the backup
+curl -o /tmp/clash-of-the-coders.dump `heroku pgbackups:url -a clash-of-the-coders`
+
+# Restore the backup
+pg_restore --verbose --clean --no-acl --no-owner -h 127.0.0.1 -U `whoami` -d clash_of_the_coders_development /tmp/clash-of-the-coders.dump
+
+# Clean up
+rm -f /tmp/clash-of-the-coders.dump
+
+set +e
