@@ -10,15 +10,10 @@ class Scoreboard
 
   def teams
     @teams ||= Team.for_year(year)
-      .sort { |a,b| score(b) <=> score(a) }
+      .map { |team| TeamReport.new(team: team) }
+      .sort { |a,b| b.score <=> a.score }
       .map
       .with_index(1) { |team,position|
-      TeamReport.new(team: team, position: position) }
-  end
-
-  private
-
-  def score(team)
-    team.raw_score || 0
+      RankedTeam.new(team: team, position: position) }
   end
 end
