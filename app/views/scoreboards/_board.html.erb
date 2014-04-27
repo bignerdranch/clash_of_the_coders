@@ -11,7 +11,7 @@
       <tr id='<%= dom_id(team) %>'>
         <td><%= team.position %></td>
         <td><%= team.name %></td>
-        <td><%= team.score %><%= '*' if team.bonus? %></td>
+        <td><%= team.score.round(2) %><%= '*' if team.bonus? %></td>
       </tr>
     <% end %>
   </tbody>
