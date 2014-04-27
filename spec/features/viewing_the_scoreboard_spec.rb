@@ -8,7 +8,6 @@ describe 'Scoreboard' do
   let(:current_user) { FactoryGirl.create(:user) }
   let!(:team_1) { FactoryGirl.create(:team, name: 'team 1') }
   let!(:team_2) { FactoryGirl.create(:team, name: 'team 2') }
-  let!(:team_3) { FactoryGirl.create(:team, name: 'team 3') }
 
   describe 'viewing the scoreboard' do
     before do
@@ -30,11 +29,6 @@ describe 'Scoreboard' do
     it 'shows the position for each team' do
       expect_team_to_have(team: team_1, content: '2nd')
       expect_team_to_have(team: team_2, content: '1st')
-    end
-
-    it 'shows a 0 score and no rank for teams with no score' do
-      expect_team_to_have(team: team_3, content: 0)
-      expect_team_to_not_have(team: team_3, content: '3rd')
     end
   end
 end
