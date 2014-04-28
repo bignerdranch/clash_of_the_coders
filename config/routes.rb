@@ -6,5 +6,9 @@ ClashOfTheCoders::Application.routes.draw do
   resources :teams, only: [:create, :edit, :index, :new, :show, :update]
   resource :unauthenticated, only: :show, controller: 'unauthenticated'
 
+  namespace :admin do
+    resource :votes, only: :show
+  end
+
   root 'application#index'
 end
