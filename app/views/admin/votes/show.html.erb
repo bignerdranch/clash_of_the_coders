@@ -1,0 +1,12 @@
+<h1>Votes</h1>
+
+<%- @users.each do |user| %>
+  <h3><%= user.name %></h3>
+  <dl>
+    <%- user.scores.each do |score| %>
+      <dd><%= score.team.name %></dd>
+      <dt><%= score.value %></dt>
+    <% end %>
+  </dl>
+  <hr/>
+<% end %>
