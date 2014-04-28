@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   scope :available, -> {
     active
   }
+
+  def self.voted
+    all.reject { |user| user.scores.empty? }
+  end
 end
