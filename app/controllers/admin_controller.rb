@@ -3,6 +3,6 @@ class AdminController < ApplicationController
 
   def verify_admin!
     ['aaron@bignerdranch.com',
-      'charlietanksley@bignerdranch.com'].include?(current_user.email)
+      'steven@bignerdranch.com'].include?(current_user.email)
   end
 end
