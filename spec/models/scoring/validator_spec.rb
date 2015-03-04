@@ -14,9 +14,6 @@ describe Scoring::Validator do
     allow(team_factory).to receive(:in_same_year)
       .with(team_1.id)
       .and_return([team_1, team_2])
-    allow(score_factory).to receive(:by_user)
-      .with(user)
-      .and_return(Array.new)
 
     validator = Scoring::Validator.new(scores: scores,
       team_factory: team_factory,

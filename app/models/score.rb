@@ -8,10 +8,6 @@ class Score < ActiveRecord::Base
   belongs_to :team, inverse_of: :scores
   belongs_to :user, inverse_of: :scores
 
-  scope :by_user, ->(user) {
-    where(user: user)
-  }
-
   scope :score_for, ->(user_id, team_id) {
     where(team_id: team_id, user_id: user_id)
   }

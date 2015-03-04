@@ -21,10 +21,6 @@ module Scoring
       configuration.scores
     end
 
-    def scores_by_user
-      @scores_by_user ||= score_factory.by_user(user)
-    end
-
     def score_factory
       configuration.score_factory
     end
