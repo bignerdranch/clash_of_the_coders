@@ -1,4 +1,4 @@
-ClashOfTheCoders::Application.routes.draw do
+Rails.application.routes.draw do
   get '/auth/stable/callback', to: 'sessions#create'
   resource :scoreboard, only: [:show]
   resource :scorecard, only: [:create, :destroy, :new, :show]
