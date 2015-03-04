@@ -1,9 +1,8 @@
-require 'spec_helper'
-require 'scorecard'
+require 'models/scorecard'
 
 describe Scorecard do
   before do
-    stub_const('Score', Class.new)
+    class_double('Score').as_stubbed_const
   end
   let(:user) { double('User', id: 1) }
 

@@ -1,3 +1,6 @@
+require 'ostruct'
+require_relative 'scores'
+
 module Scoring
   class Configuration < OpenStruct
     def initialize(args={})

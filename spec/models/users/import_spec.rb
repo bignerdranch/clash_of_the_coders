@@ -1,9 +1,9 @@
-require 'spec_helper'
-require 'users/import'
+require 'models/users/import'
+require 'models/users/stable'
 
 describe Users::Import do
   before do
-    stub_const('Users::Stable', Class.new)
+    class_double('Users::Stable').as_stubbed_const
   end
 
   let(:user_1) { double('Users::Stable::Nerd',
@@ -16,10 +16,8 @@ describe Users::Import do
   let(:user_factory) { double('User', where: Array.new) }
 
   it 'creates a user for every nerd in stable' do
-    allow(Users::Stable).to receive(:all)
-      .and_return(user_list)
-    expect(user_factory).to receive(:create)
-      .exactly(2).times
+    allow(Users::Stable).to receive(:all) { user_list }
+    expect(user_factory).to receive(:create).exactly(2).times
 
     Users::Import.run(user_factory)
   end

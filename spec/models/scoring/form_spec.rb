@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'scoring/form'
+require 'models/scoring/form'
 
 describe Scoring::Form do
   before do

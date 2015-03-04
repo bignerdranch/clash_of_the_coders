@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'scoring/validator'
+require 'models/scoring/validator'
 
 describe Scoring::Validator do
   let(:team_factory) { double('Team') }

@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'scoring/processor'
+require 'models/scoring/processor'
 
 describe Scoring::Processor do
   let(:user) { double('User', id: 1) }

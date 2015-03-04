@@ -1,5 +1,5 @@
 require 'active_model'
-require 'scoring/configuration'
+require_relative 'configuration'
 
 module Scoring
   class Form

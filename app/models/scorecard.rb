@@ -1,3 +1,5 @@
+require 'ostruct'
+
 class Scorecard
   def self.create(scores: nil, user: nil)
     new(user: user)

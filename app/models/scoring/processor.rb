@@ -1,4 +1,4 @@
-require 'scoring/configuration'
+require_relative 'configuration'
 
 module Scoring
   class Processor

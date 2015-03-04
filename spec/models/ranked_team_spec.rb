@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'ranked_team'
+require 'models/ranked_team'
 
 describe RankedTeam do
   let(:team) { double('Team', id: 1, name: 'team name') }

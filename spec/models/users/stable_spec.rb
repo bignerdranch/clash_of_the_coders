@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'users/stable'
+require 'models/users/stable'
 require 'web_spec_helper'
 
 describe Users::Stable do

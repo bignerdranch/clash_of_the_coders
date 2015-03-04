@@ -1,6 +1,5 @@
-require 'spec_helper'
 require 'active_support/core_ext/object/blank'
-require 'authenticated_user/user_lookup'
+require 'models/authenticated_user/user_lookup'
 
 describe AuthenticatedUser::UserLookup do
   let(:email) { 'fake@email.com' }

@@ -1,4 +1,4 @@
-require 'rails_spec_helper'
+require 'rails_helper'
 
 describe Score do
   let(:user) { FactoryGirl.create(:user) }
