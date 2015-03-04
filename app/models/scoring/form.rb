@@ -9,13 +9,11 @@ module Scoring
       ActiveModel::Name.new(self, nil, 'Scorecard')
     end
 
+    delegate :max_score, :max_newness_score, :max_wizardry_score, to: :configuration
+
     attr_reader :configuration
     def initialize(configuration_hash)
       @configuration = Scoring::Configuration.new(configuration_hash)
-    end
-
-    def max_score
-      configuration.max_score
     end
 
     def persisted?
