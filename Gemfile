@@ -26,6 +26,7 @@ end
 group :development, :test do
   gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails' # binding and a repl
+  gem 'pry-byebug'
   gem 'spring'
   gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
 
