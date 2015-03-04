@@ -67,5 +67,9 @@ class ApplicationController < ActionController::Base
     def persisted?
       false
     end
+
+    def id
+      :no_id
+    end
   end
 end
