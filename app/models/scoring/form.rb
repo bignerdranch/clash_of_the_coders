@@ -14,6 +14,10 @@ module Scoring
       @configuration = Scoring::Configuration.new(configuration_hash)
     end
 
+    def max_score
+      configuration.max_score
+    end
+
     def persisted?
       false
     end

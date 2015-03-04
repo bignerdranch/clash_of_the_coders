@@ -2,14 +2,14 @@ require_relative 'configuration'
 
 module Scoring
   class Validator
-    MAX_SCORE = 75
     attr_reader :configuration
+
     def initialize(configuration_hash)
       @configuration = Scoring::Configuration.new(configuration_hash)
     end
 
     def valid?
-      return false if scores.any? { |score| score.score > MAX_SCORE }
+      return false if scores.any? { |score| score.score > configuration.max_score }
       return false if scores.count != teams_to_be_scored.count
       true
     end

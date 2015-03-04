@@ -3,8 +3,14 @@ require_relative 'scores'
 
 module Scoring
   class Configuration < OpenStruct
+    MAX_SCORE = 85
+
     def initialize(args={})
       super(args)
+    end
+
+    def max_score
+      MAX_SCORE
     end
 
     def scores
