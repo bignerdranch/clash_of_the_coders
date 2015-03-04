@@ -15,7 +15,8 @@ class Scorecard
       score_obj = OpenStruct.new(score)
       Score.create(team_id: score_obj.id,
         user: user,
-        value: score_obj.score)
+        learning_points: score_obj.learning_points,
+        wizardry_points: score_obj.wizardry_points)
     end
   end
 

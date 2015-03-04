@@ -9,7 +9,13 @@
     <p>Voting rules:</p>
     <ol>
       <li>You must vote for every team.</li>
-      <li>You can award each team <b>up to <%= @scorecard.max_score %></b> points.</li>
+      <li>
+        You can award each team <b>up to <%= @scorecard.max_score %></b>
+        points. That's up to <b><%= @scorecard.max_learning_score %></b> points
+        for learning something new and useful, and up to <b><%=
+          @scorecard.max_wizardry_score %></b> points for technial wizardry.
+
+      </li>
      <li>A team's final score is the average of all their votes plus
        the bonus 7 points if earned.</li>
     </ol>

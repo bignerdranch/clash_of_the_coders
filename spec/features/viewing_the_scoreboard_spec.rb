@@ -14,16 +14,16 @@ describe 'Scoreboard' do
       allow_any_instance_of(Team).to receive(:bonus?)
         .and_return(false)
       Scorecard.create(scores: [
-          { id: team_1.id, score: 90 },
-          { id: team_2.id, score: 95 }],
+          { id: team_1.id, learning_points: 10, wizardry_points: 40 },
+          { id: team_2.id, learning_points: 10, wizardry_points: 45 }],
         user: current_user)
 
       visit_scoreboard_page
     end
 
     it 'shows the score for each team' do
-      expect_team_to_have(team: team_1, content: 90)
-      expect_team_to_have(team: team_2, content: 95)
+      expect_team_to_have(team: team_1, content: 50)
+      expect_team_to_have(team: team_2, content: 55)
     end
 
     it 'shows the position for each team' do

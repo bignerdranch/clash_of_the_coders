@@ -9,7 +9,7 @@ module Scoring
     end
 
     def valid?
-      return false if scores.any? { |score| score.score > configuration.max_score }
+      return false if scores.any? { |score| score.total > configuration.max_score }
       return false if scores.count != teams_to_be_scored.count
       true
     end

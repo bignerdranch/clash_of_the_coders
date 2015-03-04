@@ -5,7 +5,8 @@
     </div>
 
     <div class="large-1 columns">
-      <%= text_field_tag "scores[][#{team.id}]", nil, placeholder: scorecard.max_score, required: true, pattern: 'integer' %>
+      <%= text_field_tag "scores[][#{team.id}][learning_points]", nil, placeholder: scorecard.max_learning_score, required: true, pattern: 'integer' %>
+      <%= text_field_tag "scores[][#{team.id}][wizardry_points]", nil, placeholder: scorecard.max_wizardry_score, required: true, pattern: 'integer' %>
       <small class="error">VOTE</small>
     </div>
   <% end %>

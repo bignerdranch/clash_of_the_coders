@@ -40,6 +40,8 @@ class Team < ActiveRecord::Base
   end
 
   def raw_score
-    scores.average(:value)
+    return 0 unless scores.any?
+
+    scores.pluck(:learning_points, :wizardry_points).flatten.sum / Float(scores.size)
   end
 end

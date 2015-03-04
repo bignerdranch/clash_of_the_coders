@@ -9,9 +9,8 @@ module Scoring
 
     def save
       scores.each do |score|
-        score_factory.create(team_id: score.team_id,
-          user_id: user.id,
-          value: score.score)
+        score.user_id = user.id
+        score.save
       end
     end
 
@@ -19,10 +18,6 @@ module Scoring
 
     def scores
       configuration.scores
-    end
-
-    def score_factory
-      configuration.score_factory
     end
 
     def user

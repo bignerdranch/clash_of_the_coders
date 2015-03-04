@@ -9,7 +9,7 @@ module Scoring
       ActiveModel::Name.new(self, nil, 'Scorecard')
     end
 
-    delegate :max_score, :max_newness_score, :max_wizardry_score, to: :configuration
+    delegate :max_score, :max_learning_score, :max_wizardry_score, to: :configuration
 
     attr_reader :configuration
     def initialize(configuration_hash)
