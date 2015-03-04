@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     user = AuthenticatedUser.find(auth_credentials)
+    fail "Unknown user: #{auth_credentials.email}" unless user
     self.current_user = user
     redirect_to root_path
   end

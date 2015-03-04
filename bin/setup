@@ -1,0 +1,84 @@
+#!/usr/bin/env sh
+
+brew_install_if_needed() {
+  package=$1
+
+  brew info $package | grep "Not installed" > /dev/null 2>&1
+  if [[ "$?" -eq "0" ]]; then
+    brew install $package
+  fi
+}
+
+add_git_remote_if_needed() {
+  name=$1
+  url=$2
+
+  git remote | grep $name > /dev/null 2>&1
+  if [[ "$?" -eq "1" ]]; then
+    git remote add $name $url
+  fi
+}
+
+setup_database() {
+  success=0
+
+  bin/rake db:drop:all
+  let success=success+$?
+
+  bin/rake db:setup
+  let success=$?+success
+
+  RAILS_ENV=test bin/rake db:create
+  let success=$?+success
+
+  if [[ "$success" -ne "0" ]]; then
+    echo "I couldn't setup your database for you. Manual steps required."
+    printf "\e[36m"
+    echo ""
+    echo "---------------------------------"
+    echo "Some manual setup steps required:"
+    echo ""
+    echo "1) Edit config/database.yml if a username or password is required"
+    echo "   for your PostgreSQL installation."
+    echo "2) Initialize databases with:"
+    echo "     bin/rake db:drop:all"
+    echo "     bin/rake db:setup"
+    echo "     RAILS_ENV=test bin/rake db:create"
+    printf "\e[0m"
+  fi
+}
+
+# Brew packages
+brew_install_if_needed heroku-toolbelt
+
+# Postgres
+which postgres | grep "Postgres.app" > /dev/null 2>&1
+if [[ "$?" -eq "0" ]]; then
+  brew_install_if_needed postgresql
+fi
+
+# Heroku deployments
+add_git_remote_if_needed production git@heroku.com:clash-of-the-coders.git
+
+# Set up Ruby dependencies via Bundler
+gem install bundler --no-ri --no-rdoc --conservative
+gem install foreman --no-ri --no-rdoc --conservative
+bundle check || bundle install
+
+# Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
+mkdir -p .git/safe
+
+# Try to be helpful by setting up the database
+setup_database
+
+# Only if this isn't CI
+if [ -z "$CI" ]; then
+  while true; do
+    read -p "Do you wish to import all currently active Nerds from Stable? (y/n) " YESNO
+    case $YESNO in
+      [Yy]* ) bin/rake db:import_nerds; break;;
+      [Nn]* ) break;;
+      * ) echo "Please answer yes or no.";;
+    esac
+  done
+fi
