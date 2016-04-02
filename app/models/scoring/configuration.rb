@@ -3,7 +3,7 @@ require_relative 'scores'
 
 module Scoring
   class Configuration < OpenStruct
-    MAX_LEARNING_SCORE = 20.freeze
+    MAX_LEARNING_SCORE = 17.freeze
     MAX_WIZARDRY_SCORE = 65.freeze
 
     def initialize(args={})
