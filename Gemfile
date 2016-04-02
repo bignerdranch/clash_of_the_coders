@@ -24,6 +24,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'foreman'
   gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails' # binding and a repl
   gem 'pry-byebug'
